@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Angry kitty game</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="content-wrapper">
+        <h1 class="title">The Grumpy Kitty</h1>
+        <input style="text-align: center;" id="nameinput" placeholder="Please input your name"/>
+        <button id="submitBtn" onclick=submitName() type="button">Submit</button>
+        <button id="resetBtn" onclick=reset() type="button">Reset</button>
+        <div>
+          <p id="username"></p>
+          <p id="score"></p>
+          <p id="time"></p>
+          <p id="highscore"></p>
+          <p id="lastscores"></p>
+          <p id = "gameover"></p>
+        </div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="canvas" style="display: block;" width="800" height="600"></canvas>
+      </div>
+     
+     
+    </div>
+    
+    <script src="main.js"></script>
+  </body>
+</html>

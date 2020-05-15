@@ -1,0 +1,98 @@
+#nameinput{
+    box-sizing: border-box;
+   color: white;
+    font-size: 15px;
+    height: 55px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    width: 250px;
+    background: rgb(31, 7, 7);
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    border-radius: 10px;
+    margin-right: 20px;
+    text-align: center;
+    
+}
+.content-wrapper{
+    background: rgba(51, 54, 216, 0.877);
+    border-radius: 15px 15px 0px 0px;
+    color: white;
+    /* padding: 10px 32px 30px; */
+    margin: 0 auto;
+    width: 70%;
+    /* height: 400px; */
+    /* display: flex; */
+    text-align: center;
+    padding-top: 49px;
+    padding-bottom: 50px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+   
+}
+* {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    font-weight: bold;
+}
+.canvas-container{
+    display:flex;
+    background: rgba(51, 54, 216, 0.877);
+}
+.main{
+    /* text-align: center; */
+    /* padding-top: 49px; */
+    /* padding-bottom: 50px; */
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 600px;
+    /* background: rgba(51, 54, 216, 0.877); */
+    box-sizing: border-box;
+}
+
+#submitBtn{
+    margin-left: 30px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    margin: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+    font-size: inherit;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: rgb(0, 34, 114);
+    background: rgb(252, 184, 19);
+   
+    transition-duration: 0.4s;
+}
+#gameover{
+    font-size: 25px;
+    color: rgb(252, 184, 19)
+}
+#resetBtn{
+    margin-left: 30px;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    margin: 10px;
+    border-radius: 10px;
+    margin-right: 20px;
+    font-size: inherit;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    color: rgb(0, 34, 114);
+    background: rgb(240, 9, 9);
+   
+    transition-duration: 0.4s;
+}
