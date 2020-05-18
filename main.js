@@ -20,6 +20,10 @@ let myscoreArray=[];
 
 canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
+ctx.font="60px Courier New";
+ctx.textAlign = "center";
+ctx.fillStyle = "red";
+
 // canvas.width = 800;
 // canvas.height = 600;
 // document.body.appendChild(canvas);
@@ -29,7 +33,7 @@ let bgImage, catImage, asteroidImage;
 
 
 let startTime = Date.now();
-const SECONDS_PER_ROUND = 3;
+const SECONDS_PER_ROUND = 30;
 let elapsedTime = 0;
 let asteroidDirectionX = 1;
 let asteroidDirectionY = 1;
@@ -67,7 +71,9 @@ function loadImages() {
   
 
 
-
+// sound effect
+fishCollideSound = new Audio("audio/beep-fish.mp3");
+gameOverSound = new Audio("audio/Game_over2.mp3")
 
   meteorImage = new Image();
   meteorImage.onload = function () {
@@ -170,20 +176,17 @@ let update = function () {
    asteroidY += asteroidDirectionY * 2;
 
    
-  if(asteroidX<0){
+  if(asteroidX>=canvas.width-64 || asteroidX < 0){
     asteroidDirectionX=-asteroidDirectionX
+    console.log(x=asteroidX)
    
-
-  }else if(asteroidX>=canvas.width-64 ){
-    asteroidDirectionX=-asteroidDirectionX
     
   }
-  if(asteroidY<0){
-    asteroidDirectionY=-asteroidDirectionY
     
 
-  }else if(asteroidY>=canvas.height-64){
+  if(asteroidY>=canvas.height-64 || asteroidY < 0){
     asteroidDirectionY=-asteroidDirectionY
+    console.log(y=asteroidY);
   }
 
 
@@ -198,19 +201,21 @@ let update = function () {
   if (
     
     //  let myscore=number;
-    catX <= (asteroidX + 60)
-    && asteroidX <= (catX + 60)
-    && catY <= (asteroidY + 60)
-    && asteroidY <= (catY + 60)
+    catX <= (asteroidX + 64)
+    && asteroidX <= (catX + 64)
+    && catY <= (asteroidY + 64)
+    && asteroidY <= (catY + 64)
     
 
   ) {
+      asteroidX = Math.round(Math.random() * (canvas.width - 64));
+      asteroidY = Math.round(Math.random() * (canvas.height - 64));
     
     myscore++;
-    
+    fishCollideSound.play();
     visiblescore++;
     
-    console.log(myrecentscore)
+    // console.log(myrecentscore)
     
 
     //High score && high round
@@ -253,13 +258,16 @@ var render = function () {
   //   ctx.drawImage(meteorImage, meteorX, meteorY);
   // }
   if(SECONDS_PER_ROUND-elapsedTime == 0){
+    // gameOverSound.play();
     endGame();
+   
+    
   }else{
     document.getElementById("time").innerHTML= `Seconds Remaining: ${SECONDS_PER_ROUND-elapsedTime}`
 
   }
 
-    // ctx.fillText(`Seconds Remaining: ${SECONDS_PER_ROUND-elapsedTime}`, 20,20);
+   
    
    
   }
@@ -296,10 +304,12 @@ function endGame(){
   // ctx.fillText(`Seconds Remaining: ${SECONDS_PER_ROUND - elapsedTime}`, 20, 20);
   document.getElementById("time").innerHTML= `Seconds Remaining: ${SECONDS_PER_ROUND-elapsedTime}`
   document.getElementById("gameover").innerHTML = `Game Over! Click reset to start a new game`
-  myrecentscore.push(myscore);
+  // myrecentscore.push(myscore);
+  ctx.fillText(`Game over`, canvas.width/2,canvas.height/2);
   console.log(myscoreArray)
-  localStorage.setItem('myscoreArray', JSON.stringify(myrecentscore));
-  document.getElementById("lastscores").innerHTML=`You last scores: ${myrecentscore}`
+  gameOverSound.play();
+  // localStorage.setItem('myscoreArray', JSON.stringify(myrecentscore));
+  // document.getElementById("lastscores").innerHTML=`You last scores: ${myrecentscore}`
 
 }
 
