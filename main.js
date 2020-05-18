@@ -343,3 +343,11 @@ function reset(){
  
 
 }
+function resetEverything(){
+  highscore=0;
+  document.getElementById("highscore").innerHTML=(`High Score: ${highscore}`)
+  
+  
+
+
+}
